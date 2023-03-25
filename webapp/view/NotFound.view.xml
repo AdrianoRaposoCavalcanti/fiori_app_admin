@@ -1,0 +1,10 @@
+<mvc:View
+ xmlns:mvc="sap.ui.core.mvc"
+ displayBlock="true"
+ height="100%"
+ xmlns="sap.m">
+        	<MessagePage id="_IDGenMessagePage1"
+			 title="{i18n>nfTitle}"
+		     text="{i18n>nfText}"
+			  description="{i18n>nfDescription}" icon="sap-icon://alert"/>
+</mvc:View>

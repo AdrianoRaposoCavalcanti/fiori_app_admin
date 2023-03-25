@@ -1,0 +1,42 @@
+[
+    {
+      "Category": "CNTB",
+      "Description": "Notebook",
+      "__metadata": {
+        "uri": "/Categorias('CNTB')",
+        "type": "cds_zsd_producao_238.CategoriasType"
+      }
+    },
+    {
+      "Category": "CPDA",
+      "Description": "Mouse",
+      "__metadata": {
+        "uri": "/Categorias('CPDA')",
+        "type": "cds_zsd_producao_238.CategoriasType"
+      }
+    },
+    {
+      "Category": "CSCR",
+      "Description": "Impressora",
+      "__metadata": {
+        "uri": "/Categorias('CSCR')",
+        "type": "cds_zsd_producao_238.CategoriasType"
+      }
+    },
+    {
+      "Category": "CAA",
+      "Description": "monitor",
+      "__metadata": {
+        "uri": "/Categorias('Ca%204')",
+        "type": "cds_zsd_producao_238.CategoriasType"
+      }
+    },
+    {
+      "Category": "CBB",
+      "Description": "microfone",
+      "__metadata": {
+        "uri": "/Categorias('Ca%205')",
+        "type": "cds_zsd_producao_238.CategoriasType"
+      }
+    }
+  ]

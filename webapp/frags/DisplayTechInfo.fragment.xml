@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns:m="sap.m" xmlns:core="sap.ui.core" xmlns:forms="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+    <m:VBox id="vboxTechInfo" class="sapUiSmallMargin">
+        <sap.ui.layout.form:SimpleForm
+            id="_IDGenSimpleForm1"
+            xmlns:sap.ui.layout.form="sap.ui.layout.form"
+            xmlns:sap.ui.core="sap.ui.core"
+            class="sapUxAPObjectPageSubSectionAlignContent"
+            editable="false"
+            layout="ColumnLayout"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="3"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="4"
+            emptySpanL="4"
+            emptySpanM="4"
+            emptySpanS="0"
+            columnsM="2"
+            columnsL="3"
+            columnsXL="4"
+            singleContainerFullSize="false"
+        >
+            <sap.ui.layout.form:content>
+                <m:Label id="_IDGenLabel11" text="{i18n>sfMasureunit}" />
+                <m:Text id="_IDGenText7" text="{Measureunit}" class="sapMObjectNumberMedium" />
+                <m:Label id="_IDGenLabel12" text="{i18n>sfWeightmeasure}" />
+                <m:Text id="_IDGenText8" text="{
+						parts: [{
+							path: 'Weightmeasure'
+						}],
+						formatter: '.objFormatter.floatNumber'
+					}" class="sapMObjectNumberMedium" />
+                <m:Label id="_IDGenLabel13" text="{i18n>sfWeightunit}" />
+                <m:Text id="_IDGenText9" text="{Weightunit}" class="sapMObjectNumberMedium" />
+                <m:Label id="_IDGenLabel14" text="{i18n>sfWidth}" />
+                <m:Text id="_IDGenText10" text="{
+						parts: [{
+							path: 'Width'
+						}],
+						formatter: '.objFormatter.floatNumber'
+					}" class="sapMObjectNumberMedium" />
+                <m:Label id="_IDGenLabel15" text="{i18n>sfDepth}" />
+                <m:Text id="_IDGenText11" text="{
+						parts: [{
+							path: 'Depth'
+						}],
+						formatter: '.objFormatter.floatNumber'
+					}" class="sapMObjectNumberMedium" />
+                <m:Label id="_IDGenLabel16" text="{i18n>sfHeight}" />
+                <m:Text id="_IDGenText12" text="{
+						parts: [{
+							path: 'Height'
+						}],
+						formatter: '.objFormatter.floatNumber'
+					}" class="sapMObjectNumberMedium" />
+                <m:Label id="_IDGenLabel17" text="{i18n>sfDimunit}" />
+                <m:Text id="_IDGenText13" text="{Dimunit}" class="sapMObjectNumberMedium" />
+            </sap.ui.layout.form:content>
+        </sap.ui.layout.form:SimpleForm>
+    </m:VBox>
+</core:FragmentDefinition>

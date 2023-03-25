@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.scp/
+.env
+Makefile*.mta
+mta_archives
+mta-*
+resources
+archive.zip
+.*_mta_build_tmp
+webapp/controller/DataBinding.controller.js
+webapp/controller/i18n.controller.js
+webapp/controller/Objetos.controller.js
+webapp/view/DataBinding.view.xml
+webapp/view/i18n.view.xml
+webapp/view/Objetos.view.xml

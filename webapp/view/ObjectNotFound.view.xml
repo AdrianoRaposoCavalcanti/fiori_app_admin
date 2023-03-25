@@ -1,0 +1,11 @@
+<mvc:View
+ xmlns:mvc="sap.ui.core.mvc"
+ displayBlock="true"
+ height="100%"
+ xmlns="sap.m">
+        	<MessagePage id="_IDGenMessagePage1" 
+			 title="{i18n>objNFTitle}"
+		     text="{i18n>objNFText}"
+			  description="{i18n>objNFDescription}"
+               icon="sap-icon://error"/>
+</mvc:View>

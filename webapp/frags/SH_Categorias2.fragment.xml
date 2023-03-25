@@ -1,0 +1,117 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="_IDGenDialog1" title="Pesquisa Categoria" resizable="false" draggable="false" contentWidth="45%">
+        <content>
+            <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1" columnsL="2" columnsM="2" id="form0">
+                <sap.ui.layout.form:content>
+                    <List id="ProductList" 
+                       selectionChange="OncliAgora"
+                       items="{/Categorias}" 
+                       includeItemInSelection="true"
+                       mode="SingleSelectMaster"
+                       growing="true"
+		               growingThreshold="2"
+		               growingScrollToLoad="true">
+                       
+                       
+                       
+                        <headerToolbar>
+                            <OverflowToolbar id="_IDGenOverflowToolbar1" height="80px"   >
+                            	 <SearchField id="_IDGenSearchField1" liveChange=".onSearch" width="100%" />
+                           
+                                    <HBox id="_IDGenVBox1" fitContainer="true" width="100%" class="sapUiMediunMarginTop">
+                                        <!-- <Title id="_IDGenTitle1" text="Products" level="H2" /> -->
+                                        <!-- <ToolbarSpacer id="_IDGenToolbarSpacer1" /> -->
+                                        <!-- <Label id="_IDGenLabel1" text="List Item type:" labelFor="state"/> -->
+                                       
+                                       <VBox id="_IDGenVBox4" >
+
+                                            <Label id="_IDGenLabel1" labelFor="rbg3" text="Opção" />
+                                            <RadioButtonGroup id="_IDGenRadioButtonGroup1" valueState="Information" class="sapUiMediumMarginBottom" columns="5">
+                                                <RadioButton id="_IDGenRadioButton1" text="ID" selected="true" />
+                                                <RadioButton id="_IDGenRadioButton2" text="{i18n>sfDescription}" />
+                                            </RadioButtonGroup>
+                                        </VBox>
+
+                                        <VBox id="_IDGenVBox3" >
+                                            <Label id="_IDGenLabel3" text="Search" required="true" />
+                                            <Input id="_IDGenInput1" type="Number" width="100%" value="{
+												path: 'MDL_Produto>/Weightunit',
+												type: 'sap.ui.model.type.String',
+												constraints: {
+													minLength: 1,
+													maxLength: 6
+												}
+											}" />
+                                        </VBox>
+                                    </HBox>
+                        
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <!-- <StandardListItem id="_IDGenStandardListItem1" title="{Category}" description="{Description}" icon="sap-icon://product" iconDensityAware="false" iconInset="false" press="onValueHelpClose" detailPress="onValueHelpClose" /> -->
+                        <CustomListItem id="_IDGenCustomListItem1" accDescription="{Category}">
+                            <HBox id="_IDGenHBox1">
+                                <core:Icon id="_IDGenIcon1" size="2rem" src="sap-icon://attachment-photo" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+                                <VBox id="_IDGenVBox2" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                    <Link id="_IDGenLink1" text="{Category}" target="{ProductPicUrl}" press="handlePress" />
+                                    <Label id="_IDGenLabel2" text="{Description}" />
+                                </VBox>
+                            </HBox>
+                        </CustomListItem>
+                        <swipeContent>
+                            <Button id="_IDGenButton1" press="OncliAgora" />
+                        </swipeContent>
+                    </List>
+                </sap.ui.layout.form:content>
+            </sap.ui.layout.form:SimpleForm>
+        </content>
+        <buttons>
+            <Button xmlns="sap.m" text="{i18n>btnCancelar}" id="button01" type="Reject" press="onCancelarFragCategory" icon="sap-icon://cancel" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
+<!-- 3 -->
+<!-- <core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+
+	
+	<SelectDialog
+		id="_IDGenSelectDialog1"
+		title="{i18n>titleSHCategorias}"
+		contentHeight="50%"
+		search="onValueHelpSearch"
+		confirm="onValueHelpClose"
+		cancel="onValueHelpClose"
+		items="{/Categorias}"
+		
+	>
+
+
+	 <CustomListItem id="_IDGenCustomListItem1" accDescription="{Category}">
+   
+       		<HBox id="_IDGenHBox1">
+				<core:Icon
+					id="_IDGenIcon1"
+					size="2rem"
+					src="sap-icon://attachment-photo"
+					class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+				/>
+				<VBox
+					id="_IDGenVBox1"
+					class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+					<Link
+						id="_IDGenLink1"
+						text="{Category}"
+                        target="{ProductPicUrl}"
+						press="handlePress"/>
+					<Label
+						id="_IDGenLabel1"
+						text="{Description}"
+					/>
+				</VBox>
+			</HBox>
+     
+		</CustomListItem> 
+ 
+	</SelectDialog> 
+</core:FragmentDefinition>  -->

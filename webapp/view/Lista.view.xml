@@ -1,0 +1,145 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semtc="sap.f.semantic" xmlns:fb="sap.ui.comp.filterbar" xmlns:core="sap.ui.core" controllerName="br.com.gestao.fioriappadmin238.controller.Lista" displayBlock="true">
+    <Shell id="shell">
+        <App id="app">
+            <Page id="page" title="{i18n>title}">
+                <content>
+                    <semtc:SemanticPage id="pageLista" headerPinnable="true" toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false" titleAreaShrinkRatio="1:1.6:1.6" showFooter="false">
+                        <semtc:titleHeading>
+                            <Title xmlns="sap.m" text="{i18n>hadingTitle}" id="title0"/>
+                        </semtc:titleHeading>
+
+                        <semtc:headerContent>
+                            <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad" showGoOnFB="true">
+                                <fb:filterGroupItems>
+                                    <fb:FilterGroupItem label="{i18n>fgitemProduto}" name="Produto ID" labelTooltip="{i18n>fgitemProdutoTootip}" visibleInFilterBar="true" groupTitle="{i18n>fgitemProdutoGroup}" groupName="principal" id="item0">
+                                        <fb:control>
+                                            <Input width="100%" placeholder="{i18n>fgitemProdutoplaceholder}" id="productIdInput"/>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem label="{i18n>fgitemNomeProduto}" name="Nome Produto" labelTooltip="{i18n>fgitemNomeProdutoTootip}" visibleInFilterBar="true" groupTitle="{i18n>fgitemNomeProdutoGroup}" groupName="Principal" id="item1">
+                                        <fb:control>
+                                            <Input width="100%" placeholder="{i18n>fgitemNomeProdutoplaceholder}" id="productNameInput"/>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                        <fb:FilterGroupItem id="_IDGenFilterGroupItem1" label="{i18n>fgitemCategoria}" name="Categoria Produto" labelTooltip="{i18n>fgitemCategoriaTootip}" visibleInFilterBar="true" groupTitle="{i18n>fgitemCategoriaGroup}" groupName="Principal">
+                                            <fb:control>
+                                                <Input id="productCartegoryInput" width="100%" placeholder="{i18n>fgitemCategoriaplaceholder}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="onCategoria"/>
+                                            </fb:control>
+                                        </fb:FilterGroupItem>
+
+                                </fb:filterGroupItems>
+                            </fb:FilterBar>
+                        </semtc:headerContent>
+
+                        <semtc:titleMainAction/>
+
+                        <semtc:titleCustomTextActions>
+
+                            <Button xmlns="sap.m" text="{i18n>btnNovo}" id="button0" press="onNovoProduto"   icon="sap-icon://add"/>
+
+                        </semtc:titleCustomTextActions>
+
+                        <semtc:titleCustomIconActions/>
+
+                        <semtc:content>
+                            <!--{path: '/Produtos', parameters:{expand : 'to_cat'}}-->
+                            <!--{/Produtos}-->
+                            <Table noDataText="{i18n>tbNoData}" id="tableProdutos" items="{path: '/Produtos' , parameters:{expand : 'to_cat'}}">
+                                <items>
+                                    <ColumnListItem press="onSelectedItem" type="Active" id="item0_1668791164165">
+                                        <cells>
+                                            <sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://product" size="3rem" id="icon0"/>
+
+                                            <Text xmlns="sap.m" text="{Productid}" id="text9"/>
+
+                                            <ObjectIdentifier xmlns="sap.m" title="{Name}" text="{Description}" id="identifier0"/>
+
+                                            <Text xmlns="sap.m" text="{to_cat/Description}" id="text11_1669054707295"/>
+
+                                            <Text xmlns="sap.m" text="{Supplierid}" id="text12_1669054813587"/>
+
+                                            <Text xmlns="sap.m" text="{Measureunit}" id="text13_1669054821491"/>
+
+                                            <!--{Price}-->
+                                            <ObjectNumber xmlns="sap.m" number="{ parts: [{path:'Price'}, {path:'Currencycode'}], type:'sap.ui.model.type.Currency', formatOptions: {showMeasure: false}}" unit="{Currencycode}" id="number0" state="Success"/>
+
+                                            <ObjectStatus xmlns="sap.m" text="{path:'Status', formatter:'.objFormatter.statusProdutos' }" state="{path:'Status', formatter:'.objFormatter.stateProdutos' }" id="status0" icon="{path:'Status', formatter:'.objFormatter.iconProdutos' }"/>
+
+                                            <!--{ parts: [{path:'Createdat'}], formatter:'.formatDate' } Quando tenho um ou mais parametros  -->
+                                            <!--{ path:'Createdat', formatter:'.formatDate' } Quando tenho um parametro-->
+
+                                            <!-- {Createdat} -->
+                                            <Text xmlns="sap.m" text="{ parts: [{path:'Createdat'}], formatter:'.objFormatter.formatDate' }" id="text14_1669056085632"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+
+                                <columns>
+                                    <Column id="column0">
+                                        <header>
+                                            <Label text="{i18n>tbcolumnLogo}" id="label0"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column1">
+                                        <header>
+                                            <Label text="{i18n>tbcolumnProdutoID}" id="label1"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column2" width="16em">
+                                        <header>
+                                            <Label text="{i18n>tbcolumnNome}" id="label2"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column0_1669042580706">
+                                        <header>
+                                            <Text text="{i18n>tbcolumnCategoria}" id="text9_1669042580706"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column1_1669042593442" width="8em">
+                                        <header>
+                                            <Text text="{i18n>tbcolumnFornecedorId}" id="text10_1669042593441"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column2_1669042605953" hAlign="Center">
+                                        <header>
+                                            <Text text="{i18n>tbcolumnUnMedia}" id="text11"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column3">
+                                        <header>
+                                            <Text text="{i18n>tbcolumnPreco}" id="text12"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column4">
+                                        <header>
+                                            <Text text="{i18n>tbcolumnStatus}" id="text13"/>
+                                        </header>
+                                    </Column>
+
+                                    <Column id="column5" hAlign="Center">
+                                        <header>
+                                            <Text text="{i18n>tbcolumnDtCriacao}" id="text14"/>
+                                        </header>
+                                    </Column>
+                                </columns>
+                            </Table>
+                        </semtc:content>
+
+                        <semtc:footerCustomActions/>
+                        <semtc:titleSnappedContent>
+                            <Title xmlns="sap.m" text="{i18n>hadingTitleSnappedContent}" id="title0_1668721320689"/>
+                        </semtc:titleSnappedContent>
+                    </semtc:SemanticPage>
+                </content>
+            </Page>
+        </App>
+    </Shell>
+</mvc:View>

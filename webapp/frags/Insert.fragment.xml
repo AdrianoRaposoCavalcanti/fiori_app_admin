@@ -1,0 +1,438 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+>
+	<Dialog
+		id="_IDGenDialog1"
+		title="{i18n>dialogTitle}"
+		resizable="false"
+		draggable="false"
+		contentWidth="45%"
+	>
+		<content>
+			<sap.ui.layout.form:SimpleForm
+				xmlns:sap.ui.layout.form="sap.ui.layout.form"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="true"
+				layout="ResponsiveGridLayout"
+				labelSpanL="4"
+				labelSpanM="4"
+				emptySpanL="1"
+				emptySpanM="1"
+				columnsL="2"
+				columnsM="2"
+				id="form0"
+			>
+				<sap.ui.layout.form:content>
+					<!-- Propriedade Name -->
+					<Label
+						id="lblName"
+						text="{i18n>sfNome}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput4"
+						width="65%"
+						valueStateText="{i18n>sfNomeStateText}"
+						maxLength="40"
+						value="{
+							path: 'MDL_Produto>/Name',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								search: '^[A-Za-z ]+$',
+								minLength: 3,
+								maxLength: 50
+							}
+						}"
+					/>
+					<!-- Propriedade Description -->
+					<Label
+						id="lblDescr"
+						text="{i18n>sfDescription}"
+					/>
+					<TextArea
+						id="textNote"
+						width="65%"
+						rows="4"
+						maxLength="255"
+						value="{
+							path: 'MDL_Produto>/Description',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								minLength: 5,
+								maxLength: 255
+							}
+						}"
+					/>
+					<!-- Propriedade Category -->
+					<Label
+						id="lblCategory"
+						text="{i18n>sfCategory}"
+						required="true"
+					/>
+				  <Input
+						id="_IDGenInput5"
+						showValueHelp="true"
+						valueHelpRequest=".onCategoria"
+						valueHelpOnly="true"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Category',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								search: '^[a-zA-Z]+[s]?[a-zA-Z]+$',
+								minLength: 1,
+								maxLength: 50
+							}
+						}"
+					/>  
+					<!-- Propriedade Price -->
+					<Label
+						id="lblPrice"
+						text="{i18n>sfPrice}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput6"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Price',
+							type: 'sap.ui.model.type.Currency',
+							constraints: {
+								minimum: 5,
+								maximum: 10000
+							}
+						}"
+					/>
+					<!-- Propriedade Status -->
+					<Label
+						id="_IDGenLabel3"
+						text="{i18n>sfStatus}"
+						required="true"
+					/>
+					<Select
+						id="_IDGenSelect1"
+						width="65%"
+						selectedKey="{
+							path: 'MDL_Produto>/Status',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								minLength: 1
+							}
+						}"
+					>
+						<items>
+							<core:ListItem
+								id="_IDGenListItem1"
+								key=""
+								text="{i18n>selectSelecione}"
+							/>
+							<core:ListItem
+								id="_IDGenListItem2"
+								key="E"
+								text="{i18n>statusE}"
+								icon="sap-icon://order-status"
+							/>
+							<core:ListItem
+								id="_IDGenListItem3"
+								key="P"
+								text="{i18n>statusP}"
+								icon="sap-icon://order-status"
+							/>
+							<core:ListItem
+								id="_IDGenListItem4"
+								key="F"
+								text="{i18n>statusF}"
+								icon="sap-icon://order-status"
+							/>
+						</items>
+						<customData>
+							<core:CustomData
+								key="required"
+								value="insert"
+								writeToDom="true"
+							/>
+						</customData>
+					</Select>
+					<!-- Propriedade Supplier -->
+					<Label
+						id="_IDGenLabel4"
+						text="{i18n>sfSupplier}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput7"
+						type="Number"
+						width="65%"
+						showSuggestion="true"
+						suggest="onSuggest"
+						suggestionItems="{/Fornecedores}"						
+						change=".getSupplier"
+						description="{MDL_Produto>/Suppliername}"
+						valueStateText="{i18n>sfSupplierStateText}"
+						maxLength="10"
+						value="{
+							path: 'MDL_Produto>/Supplierid',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								search: '^[0-9]*$',
+								minLength: 3,
+								maxLength: 10
+							}
+						}"
+					>
+
+                      <suggestionItems id="_suggItem1">
+						<core:ListItem
+							id="_ListItem1"
+							text="{Lifnr}"
+							additionalText="{name1}"
+						/>
+					</suggestionItems>
+
+					</Input>
+
+
+					<!-- Propriedade Data Criacao -->
+					<Label
+						id="lblDtCriacao"
+						text="{i18n>sfCreatedon}"
+						required="true"
+					/>
+					<DatePicker
+						valueStateText="{i18n>sfCreatedatStateText}"
+						id="inputData"
+						value="{
+							path: 'MDL_Produto>/Createdat',
+							type: 'sap.ui.model.type.Date',
+							formatOptions: {
+								source: {
+									pattern: 'dd/MM/yyyy'
+								},
+								pattern: 'dd/MM/yyyy'
+							},
+							constraints: {
+								minimum: '01/01/2022'
+							}
+						}"
+						required="true"
+						width="65%"
+					/>
+					<!-- Propriedade Criado por -->
+					<Label
+						id="_IDGenLabel5"
+						text="{i18n>sfCreatedby}"
+						required="true"
+					/>
+					<Select
+						id="_IDGenSelect2"
+						width="65%"
+						selectedKey="{MDL_Produto>/Usercreate}"
+						items="{MDL_Users>/}"
+					>
+						<items>
+							<core:ListItem
+								id="_IDGenListItem5"
+								key="{MDL_Users>Userid}"
+								text="{MDL_Users>Firstname} {MDL_Users&gt;Lastname}"
+							/>
+						</items>
+					</Select>
+				</sap.ui.layout.form:content>
+				<sap.ui.layout.form:title>
+					<core:Title
+						text="{i18n>sectionBasicInformation}"
+						id="title6"
+					/>
+				</sap.ui.layout.form:title>
+			</sap.ui.layout.form:SimpleForm>
+			<sap.ui.layout.form:SimpleForm
+				xmlns:sap.ui.layout.form="sap.ui.layout.form"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="true"
+				layout="ResponsiveGridLayout"
+				labelSpanL="4"
+				labelSpanM="4"
+				emptySpanL="1"
+				emptySpanM="1"
+				columnsL="2"
+				columnsM="2"
+				id="form1"
+			>
+				<sap.ui.layout.form:content>
+					<!-- Propriedade Weight Measure -->
+					<Label
+						id="_IDGenLabel8"
+						text="{i18n>sfWeightunit}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput10"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Weightunit',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								minLength: 1,
+								maxLength: 6
+							}
+						}"
+					/>
+					<!-- Propriedade Weight Measure -->
+					<Label
+						id="_IDGenLabel7"
+						text="{i18n>sfWeightmeasure}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput9"
+						width="65%"
+						valueStateText="{i18n>sfWeightmeasure}"
+						value="{
+							path: 'MDL_Produto>/Weightmeasure',
+							type: 'sap.ui.model.type.Float',
+							formatOptions: {
+								maxFractionDigits: 2,
+								minFractionDigits: 2
+							},
+							constraints: {
+								minimum: 1,
+								maximum: 6
+							}
+						}"
+					/>
+					<!-- Propriedade Measure Unit -->
+					<Label
+						id="_IDGenLabel6"
+						text="{i18n>sfMeasureunit}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput8"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Measureunit',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								search: '^[A-Za-z]+$',
+								minLength: 1,
+								maxLength: 2
+							}
+						}"
+					/>
+					<!-- Propriedade Width -->
+					<Label
+						id="_IDGenLabel9"
+						text="{i18n>sfWidth}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput11"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Width',
+							type: 'sap.ui.model.type.Float',
+							formatOptions: {
+								maxFractionDigits: 2,
+								minFractionDigits: 2
+							},
+							constraints: {
+								minimum: 1,
+								maximum: 6
+							}
+						}"
+					/>
+					<!-- Propriedade Depth -->
+					<Label
+						id="_IDGenLabel10"
+						text="{i18n>sfDepth}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput12"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Depth',
+							type: 'sap.ui.model.type.Float',
+							formatOptions: {
+								maxFractionDigits: 2,
+								minFractionDigits: 2
+							},
+							constraints: {
+								minimum: 1,
+								maximum: 6
+							}
+						}"
+					/>
+					<!-- Propriedade Height -->
+					<Label
+						id="_IDGenLabel11"
+						text="{i18n>sfHeight}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput13"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Height',
+							type: 'sap.ui.model.type.Float',
+							formatOptions: {
+								maxFractionDigits: 2,
+								minFractionDigits: 2
+							},
+							constraints: {
+								minimum: 1,
+								maximum: 6
+							}
+						}"
+					/>
+					<!-- Propriedade Dimun -->
+					<Label
+						id="_IDGenLabel12"
+						text="{i18n>sfDimunit}"
+						required="true"
+					/>
+					<Input
+						id="_IDGenInput14"
+						width="65%"
+						value="{
+							path: 'MDL_Produto>/Dimunit',
+							type: 'sap.ui.model.type.String',
+							constraints: {
+								search: '^[A-Za-z]+$',
+								minLength: 1,
+								maxLength: 2
+							}
+						}"
+					/>
+				</sap.ui.layout.form:content>
+				<sap.ui.layout.form:title>
+					<core:Title
+						text="{i18n>sectionTechnicalInformation}"
+						id="title7"
+					/>
+				</sap.ui.layout.form:title>
+			</sap.ui.layout.form:SimpleForm>
+		</content>
+		<buttons>
+			<Button
+				xmlns="sap.m"
+				text="{i18n>btnInserir}"
+				id="button"
+				type="Accept"
+				icon="sap-icon://add"
+				press="onValida"
+			/>
+			<Button
+				xmlns="sap.m"
+				text="{i18n>btnCancelar}"
+				id="button01"
+				type="Reject"
+				press="onCancelar"
+				icon="sap-icon://cancel"
+			/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

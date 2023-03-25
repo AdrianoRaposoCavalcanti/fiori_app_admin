@@ -1,0 +1,178 @@
+{
+    "_version": "1.42.0",
+    "sap.app": {
+        "id": "br.com.gestao.fioriappadmin238",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.8.1",
+            "toolsId": "43b75d95-9ed0-470f-90fa-096962fad9d2"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZSB_PRODUCAO_238/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "annotations": [
+                        "mainService_Annotation"
+                    ],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "mainService_Annotation": {
+                "uri": "/destinations/S4_Hana_Treinamento/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZSB_PRODUCAO_238_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/mainService_Annotation.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.102.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "br.com.gestao.fioriappadmin238.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "br.com.gestao.fioriappadmin238.view",
+                "controlAggregation": "pages",
+                "controlId": "appID",
+                "clearControlAggregation": false,
+                "bypassed": {
+                    "target":"NotFound"
+                }
+            },
+            "routes": [
+                {
+                    "name": "RouteApp",
+                    "pattern": "RouteApp",
+                    "target": [
+                        "TargetApp"
+                    ]
+                },
+                {
+                    "name": "Lista",
+                    "pattern": "",
+                    "target": [
+                        "lista"
+                    ]
+                },
+                {
+                    "name": "Detalhes",
+                    "pattern": "detalhes/{productId}",
+                    "target": [
+                        "detalhes"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetApp": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "App",
+                    "viewName": "App"
+                },
+                "lista": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "lista",
+                    "viewName": "Lista",
+                    "controlId": "appID"
+                },
+                "detalhes": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "detalhes",
+                    "viewName": "Detalhes",
+                    "controlId": "appID"
+                },
+                "NotFound": {
+                    "viewId": "notfound",
+                    "viewName": "NotFound",
+                    "transition": "slide"
+                },
+                "objNotFound": {
+                    "viewId": "objNotFound",
+                    "viewName": "ObjectNotFound",
+                    "transition": "slide"
+                }
+            }
+          
+        },
+        "rootView": {
+            "viewName": "br.com.gestao.fioriappadmin238.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

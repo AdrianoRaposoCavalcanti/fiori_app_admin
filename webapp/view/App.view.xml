@@ -1,0 +1,6 @@
+<mvc:View controllerName="br.com.gestao.fioriappadmin238.controller.App"
+ xmlns:mvc="sap.ui.core.mvc"
+ displayBlock="true"
+ xmlns="sap.m">
+        <App id="appID"></App>
+</mvc:View>

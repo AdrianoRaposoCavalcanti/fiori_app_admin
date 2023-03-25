@@ -1,0 +1,157 @@
+[
+    {
+      "Productid": "HT-1000",
+      "Name": "Notebook 15 polegadas",
+      "Description": "Notebook Basic 15 with 2,80 GHz quad core, 15 LCD, 4 GB DDR RAM, 500 GB Hard Disc, Windows 8 Pro",
+      "Category": "CNTB",
+      "Supplierid": "0100000046",
+      "Measureunit": "CM",
+      "Weightmeasure": 9.85,
+      "Weightunit": "W 1",
+      "Price": 416.31,
+      "Currencycode": "BRL",
+      "Width": 6671.92,
+      "Depth": 2613.6,
+      "Height": 7960.43,
+      "Dimunit": "D 1",
+      "Createdat": "/Date(967838170000)/",
+      "Changedat": "/Date(1114286170000)/",
+      "Status": "E",
+      "Usercreate": "Usercreate 1",
+      "Userupdate": "Userupdate 1",
+      "Suppliername": "Suppliername 1",
+      "__metadata": {
+        "uri": "/Produtos('HT-1000')",
+        "type": "cds_zsd_producao_238.ProdutosType"
+      },
+      "to_cat": {
+        "__deferred": {
+          "uri": "/Produtos('HT-1000')/to_cat"
+        }
+      }
+    },
+    {
+      "Productid": "HT-1020",
+      "Name": "ITeIO Vault Net",
+      "Description": "Mouse USB",
+      "Category": "CPDA",
+      "Supplierid": "0100000047",
+      "Measureunit": "PCT",
+      "Weightmeasure": 2584.86,
+      "Weightunit": "W 2",
+      "Price": 5101.49,
+      "Currencycode": "BRL",
+      "Width": 7638.68,
+      "Depth": 100.85,
+      "Height": 8688.55,
+      "Dimunit": "D 2",
+      "Createdat": "/Date(1264186570000)/",
+      "Changedat": "/Date(1509216970000)/",
+      "Status": "E",
+      "Usercreate": "Usercreate 2",
+      "Userupdate": "Userupdate 2",
+      "Suppliername": "Suppliername 2",
+      "__metadata": {
+        "uri": "/Produtos('HT-1020')",
+        "type": "cds_zsd_producao_238.ProdutosType"
+      },
+      "to_cat": {
+        "__deferred": {
+          "uri": "/Produtos('HT-1020')/to_cat"
+        }
+      }
+    },
+    {
+      "Productid": "HT-1030",
+      "Name": "ITeIO Vault SAT",
+      "Description": "Description 3",
+      "Category": "CPDA",
+      "Supplierid": "0100000055",
+      "Measureunit": "PCT",
+      "Weightmeasure": 9523.1,
+      "Weightunit": "W 3",
+      "Price": 8078.05,
+      "Currencycode": "BRL",
+      "Width": 3324.62,
+      "Depth": 591.67,
+      "Height": 4853.71,
+      "Dimunit": "D 3",
+      "Createdat": "/Date(1149191770000)/",
+      "Changedat": "/Date(1224701770000)/",
+      "Status": "P",
+      "Usercreate": "Usercreate 3",
+      "Userupdate": "Userupdate 3",
+      "Suppliername": "Suppliername 3",
+      "__metadata": {
+        "uri": "/Produtos('HT-1030')",
+        "type": "cds_zsd_producao_238.ProdutosType"
+      },
+      "to_cat": {
+        "__deferred": {
+          "uri": "/Produtos('HT-1030')/to_cat"
+        }
+      }
+    },
+    {
+      "Productid": "HT-1040",
+      "Name": "Ergo Screen E-II",
+      "Description": "Description 4",
+      "Category": "CSCR",
+      "Supplierid": "0100000169",
+      "Measureunit": "M 4",
+      "Weightmeasure": 4053.58,
+      "Weightunit": "W 4",
+      "Price": 7495.46,
+      "Currencycode": "BRL",
+      "Width": 7826.71,
+      "Depth": 3812,
+      "Height": 6152.62,
+      "Dimunit": "D 4",
+      "Createdat": "/Date(1190145370000)/",
+      "Changedat": "/Date(1157745370000)/",
+      "Status": "F",
+      "Usercreate": "Usercreate 4",
+      "Userupdate": "Userupdate 4",
+      "Suppliername": "Suppliername 4",
+      "__metadata": {
+        "uri": "/Produtos('HT-1040')",
+        "type": "cds_zsd_producao_238.ProdutosType"
+      },
+      "to_cat": {
+        "__deferred": {
+          "uri": "/Produtos('HT-1040')/to_cat"
+        }
+      }
+    },
+    {
+      "Productid": "HT-1050",
+      "Name": "Flat XL",
+      "Description": "Optimum Hi-Resolution max.",
+      "Category": "CSCR",
+      "Supplierid": "0100000012",
+      "Measureunit": "PCT",
+      "Weightmeasure": 7116.64,
+      "Weightunit": "W 5",
+      "Price": 3189.11,
+      "Currencycode": "BRL",
+      "Width": 2884.41,
+      "Depth": 6673.2,
+      "Height": 3050.52,
+      "Dimunit": "D 5",
+      "Createdat": "/Date(1139252170000)/",
+      "Changedat": "/Date(1405367770000)/",
+      "Status": "P",
+      "Usercreate": "Usercreate 5",
+      "Userupdate": "Userupdate 5",
+      "Suppliername": "Suppliername 5",
+      "__metadata": {
+        "uri": "/Produtos('HT-1050')",
+        "type": "cds_zsd_producao_238.ProdutosType"
+      },
+      "to_cat": {
+        "__deferred": {
+          "uri": "/Produtos('HT-1050')/to_cat"
+        }
+      }
+    }
+  ]
