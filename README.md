@@ -107,6 +107,6 @@ Considerando que o SAP UI5 é a tecnologia para construir aplicações web com c
         
 Fonte da informação [CVAconsultoria](https://cvaconsultoria.com.br/diferenca-entre-o-sap-ui5-e-o-sap-fiori/ "Site da CVAconsultoria" ).        
 
-<i><h1 align="center">"Fazer o bem: esse é o código {/}" </h4></i>
+<i><h1 align="center">"Fazer o bem, esse é o código {/}" </h4></i>
  
 
