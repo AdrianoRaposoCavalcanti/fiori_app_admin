@@ -27,7 +27,11 @@
                 <m:VBox id="_IDGenVBox6" class="sapUiSmallMarginEnd sapUiMarginBotton">
                     <m:HBox id="_IDGenHBox4">
                         <m:Label id="_IDGenLabel5" text="{i18n>headerCreatedby}" class="sapUiTinyMarginEnd" />
-                        <m:Link id="_IDGenLink6" text="{Usercreate}" />
+                      <!--<m:Link id="_IDGenLink6" text="{to_user_create/Firstname} {to_user_create/Lastname}" />-->
+                       <m:Link id="_IDGenLink6" text="{Nomecompleto}" />
+
+
+                        
                     </m:HBox>
                     <m:HBox id="_IDGenHBox5">
                         <m:Label id="_IDGenLabel6" text="{i18n>headerCreateon}" class="sapUiTinyMarginEnd" />
@@ -35,7 +39,8 @@
                     </m:HBox>
                     <m:HBox id="_IDGenHBox6">
                         <m:Label id="_IDGenLabel7" text="{i18n>headerChangedby}" class="sapUiTinyMarginEnd" />
-                        <m:Link id="_IDGenLink9" text="{Userupdate}" />
+                      <!--   <m:Link id="_IDGenLink9" text="{Userupdate}" />-->
+                             <m:Link id="_IDGenLink9" text="{to_user_update/Firstname} {to_user_update/Lastname}" />
                     </m:HBox>
                     <m:HBox id="_IDGenHBox7">
                         <m:Label id="_IDGenLabel8" text="{i18n>headerChangeon}" class="sapUiTinyMarginEnd" />
@@ -118,9 +123,9 @@
 						<m:MessageStrip id="_IDGenMessageStrip2" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." type="Error" />
 					</heading> -->
                 <subSections>
-                    <ObjectPageSubSection id="_IDGenObjectPageSubSection2" visible="false">
+                    <ObjectPageSubSection id="_IDGenObjectPageSubSection2">
                         <blocks>
-                             <m:VBox id="vboxViewTechInfo" >  </m:VBox>
+                             <m:VBox id="vboxViewTechInfo">  </m:VBox>
                         </blocks>
                     </ObjectPageSubSection>
                 </subSections>

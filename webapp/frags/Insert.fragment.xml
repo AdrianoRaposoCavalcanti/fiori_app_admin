@@ -1,6 +1,7 @@
 <core:FragmentDefinition
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
 >
 	<Dialog
 		id="_IDGenDialog1"
@@ -40,7 +41,7 @@
 							path: 'MDL_Produto>/Name',
 							type: 'sap.ui.model.type.String',
 							constraints: {
-								search: '^[A-Za-z ]+$',
+								search: '^[a-zA-Z0-9 ]+$',
 								minLength: 3,
 								maxLength: 50
 							}
@@ -65,6 +66,20 @@
 							}
 						}"
 					/>
+				 
+				    <Label id="lbPlate"  labelFor="idInputPlate" text="{i18n>EnhancementsDocument}" required="true"
+					/> 
+					<MaskInput id="sPlate" 
+					width="65%"
+					value="{MDL_Produto>/Enhancementdoc}" 
+					change="upperCaseA"
+					placeholderSymbol=" " 
+					mask="CCC-CC(CC)" >
+ 					<rules>
+					    <MaskInputRule id="_IDGenMaskInputRule1" maskFormatSymbol="C" regex="[A-Za-z0-9]"/>
+					</rules>
+					</MaskInput>
+					   
 					<!-- Propriedade Category -->
 					<Label
 						id="lblCategory"
@@ -82,8 +97,7 @@
 							type: 'sap.ui.model.type.String',
 							constraints: {
 								search: '^[a-zA-Z]+[s]?[a-zA-Z]+$',
-								minLength: 1,
-								maxLength: 50
+								minLength: 1
 							}
 						}"
 					/>  
@@ -200,10 +214,14 @@
 						text="{i18n>sfCreatedon}"
 						required="true"
 					/>
+				 
 					<DatePicker
 						valueStateText="{i18n>sfCreatedatStateText}"
 						id="inputData"
-						value="{
+					 	required="true"
+						width="65%"
+						enabled="false"
+						value="{  
 							path: 'MDL_Produto>/Createdat',
 							type: 'sap.ui.model.type.Date',
 							formatOptions: {
@@ -215,10 +233,10 @@
 							constraints: {
 								minimum: '01/01/2022'
 							}
-						}"
-						required="true"
-						width="65%"
-					/>
+						}" 
+					/> 
+                     
+
 					<!-- Propriedade Criado por -->
 					<Label
 						id="_IDGenLabel5"

@@ -43,6 +43,7 @@ sap.ui.define([
         return Controller.extend("br.com.gestao.fioriappadmin238.controller.Lista", {
 
             objFormatter: Formatter,
+
             onInit: function () {
 
 
@@ -166,7 +167,6 @@ sap.ui.define([
             },
 
             onCategoria: function (oEvent) {
-                debugger;
                 this._oInput = oEvent.getSource().getId();
                 var oView = this.getView();
 
@@ -174,7 +174,7 @@ sap.ui.define([
                 if (!this._CategoriaSearchHelp) {
                     this._CategoriaSearchHelp = Fragment.load({
                         id: oView.getId(),
-                        name: "br.com.gestao.fioriappadmin238.frags.SH_Categorias2",
+                        name: "br.com.gestao.fioriappadmin238.frags.SH_Categorias",
                         controller: this
                     }).then(function (oDialog) {
                         oView.addDependent(oDialog);
@@ -183,9 +183,8 @@ sap.ui.define([
                 }
 
                 this._CategoriaSearchHelp.then(function (oDialog) {
-                    debugger;
                     //Limpando o filtro de categorias na abertura do fragment
-                    //   oDialog.getBinding("items").filter([]);
+                    oDialog.getBinding("items").filter([]);
 
                     //Abertura do fragment
                     oDialog.open();
@@ -213,13 +212,23 @@ sap.ui.define([
                 //      
                 //  this._oInput = oEvent.getSource().getId();
 
-                //Criar o Model Produto
-                this.criarModel();
+                debugger;
+
+                if (this.getView().getModel("MDL_Produto")) {
+
+                    if (this.getView().getModel("MDL_Produto").bDestroyed == true) {
+                        //Criar o Model Produto
+                        this.criarModel();
+                    }
+                } else {
+
+                    this.criarModel();
+
+                }
 
                 var t = this;
 
                 var oView = this.getView();
-
 
                 //Verifico se o objeto fragment existe. Se não, crio e adiciono na view 
                 if (!this._Produto) {
@@ -244,7 +253,11 @@ sap.ui.define([
                     //Abertura do fragment
                     oDialog.open();
 
-                    // t.onGetUsuarios();
+                    //-------------Inseri data
+                    var vDataAtual = t.objFormatter.formatDate(new Date());
+                    oView.byId("inputData").setValue(vDataAtual);
+
+                    t.onGetUsuarios();
                     t.getReadOpcoes();
 
                 });
@@ -275,9 +288,8 @@ sap.ui.define([
             },
 
             onValueHelpClose: function (oEvent) {
-                debugger;
                 var oSelectedItem = oEvent.getParameter("selectedItem");
-                //  var oSelectedItem = oEvent.getParameter("selectedItem").getBindingContext().getObject();
+                //    var oSelectedItem = oEvent.getParameter("selectedItem").getBindingContext().getObject();
                 var oImput = null;
 
                 if (this.byId(this._oInput)) {
@@ -292,11 +304,12 @@ sap.ui.define([
                     return;
                 }
 
-                //  oImput.setValue(oSelectedItem.getTitle());
-                oImput.setValue(oSelectedItem.Category);
+                oImput.setValue(oSelectedItem.getTitle());
+                //  oImput.setValue(oSelectedItem.Category);
 
 
             },
+
             handleSelectChange: function (oEvent) {
                 var type = oEvent.getParameter("selectedItem").getKey();
                 this.byId("ProductList").getItems().forEach(function (item) {
@@ -333,13 +346,23 @@ sap.ui.define([
                 oDialog.open();
             },
 
-            onCancelar: function () {
+            onCancelar: function (oEvent) {
 
                 // Funciona
                 //  oEvent.getSource().getParent().close();
                 // Funciona
                 // this.getView().byId("_IDGenDialog1").close();
+
+                var oView = this.getView();
+
                 this._Produto.then(function (oDialog) {
+
+                    //-------------------------------------
+                    // var vname = oView.byId("_IDGenInput4");
+
+                    //---------------Guardar dados no Model
+                    //     var voModel = oView.getModel("MDL_Produto");
+                    //    oView.setModel(voModel);
 
                     //Fechamento do fragment
                     oDialog.close();
@@ -354,7 +377,7 @@ sap.ui.define([
                 var validator = new Validator();
 
                 //Checar validação
-                if (validator.validate(this.byId("_IDGenDialog1")) || 1==1) {
+                if (validator.validate(this.byId("_IDGenDialog1")) || 1 == 1) {
 
                     this.onInsert();
                     // console.log("Tudo ok!");
@@ -390,6 +413,7 @@ sap.ui.define([
                 objNovo.Createdat = this.objFormatter.dateSAP(objNovo.Createdat);
                 objNovo.Currencycode = "BRL";
                 objNovo.Userupdate = "";
+                
 
 
                 //Criando uma referencia do arquivo i18n
@@ -438,6 +462,14 @@ sap.ui.define([
 
                                             //Dar um refresh no model default
                                             t.getView().getModel().refresh();
+
+                                            debugger;
+                                            t.getView().getModel("MDL_Produto").destroy();
+
+                                            //  t.getView().getModel("MDL_Produto").setData(null);
+                                            //  t.getView().getModel("MDL_Produto").refresh();
+                                            //  this.criarModel();
+                                            //sap.ui.getCore().getModel("MDL_Produto").refresh(true);
 
                                             //Fechar o BusyDialog
 
@@ -488,9 +520,9 @@ sap.ui.define([
             },
 
             OncliAgora: function (oEvent) {
-            //    MessageBox.information("Estou aqui");
+                //    MessageBox.information("Estou aqui");
                 debugger;
-              //  var oSelectedItem = oEvent.getParameter("selectedItem");
+                //  var oSelectedItem = oEvent.getParameter("selectedItem");
                 var oSelectedItem = oEvent.getParameter("selectedItem").getBindingContext().getObject();
                 var oImput = null;
 
@@ -512,7 +544,6 @@ sap.ui.define([
 
             //Capturar a coleção de usuarios de um novo serviço oData 
             onGetUsuarios: function () {
-
                 var t = this;
                 var strEntity = "/sap/opu/odata/sap/ZSB_USERS_238";
 
@@ -603,8 +634,6 @@ sap.ui.define([
             },
             getReadOpcoes: function () {
 
-                debugger;
-
                 // Item 1 - Chamada via URL
 
                 var sElement = "/Produtos";
@@ -634,7 +663,6 @@ sap.ui.define([
                     urlParameters: {
 
                         $expand: "to_cat"
-
                     },
 
                     success: function (oData, results) {
@@ -659,9 +687,26 @@ sap.ui.define([
 
                 });
 
-            }
+            },
 
+            dataAtual: function (oEvent) {
+                debugger;
+                var vDataAtual = new Date();
+                //      this.getView().byId("inputData").setValue(vDataAtual);
+                var oModel = new JSONModel();
+                this.getView().setModel(oModel, "MDL_Produto");
+                oModel.setData({
+                    Createdat: new Date()
+                });
+            },
 
-
+            upperCaseA: function (oEvent) {
+                debugger;
+                var oValue = oEvent.getParameter("value"),
+                    oValueUpper = oEvent.getParameter("value").toUpperCase();
+                if (oValue != oValueUpper) {
+                    oEvent.getSource().setValue(oValueUpper);
+                }
+            },
         });
     });

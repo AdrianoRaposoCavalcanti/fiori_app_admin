@@ -39,7 +39,7 @@
 							path: 'MDL_Produto>/Name',
 							type: 'sap.ui.model.type.String',
 							constraints: {
-								search: '^[A-Za-z ]+$',
+								search: '^[a-zA-Z0-9 ]+$',
 								minLength: 3,
 								maxLength: 50
 							}
@@ -195,16 +195,18 @@
 
 
 					<!-- Propriedade Data Criacao -->
-<!--
+ 
 					<m:Label
 						id="lblDtCriacao"
-						text="{i18n>sfCreatedon}"
+						text="{i18n>sfChangedon}"
 						required="true"
 					/>
 					<m:DatePicker
-						valueStateText="{i18n>sfCreatedatStateText}" id="inputData"
+						valueStateText="{i18n>sfCreatedatStateText}"
+						id="inputData"
+						enabled="false"
 						value="{
-							path: 'MDL_Produto>/Createdat',
+							path: 'MDL_Produto>/Changedat',
 							type: 'sap.ui.model.type.Date',
 							formatOptions: {
 								source: {
@@ -219,7 +221,7 @@
 						required="true"
 						width="65%"
 					/>
--->
+ 
 					<!-- Propriedade Criado por -->
 					<m:Label
 						id="_IDGenLabel5_Change"
