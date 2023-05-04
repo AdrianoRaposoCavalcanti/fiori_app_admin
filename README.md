@@ -68,7 +68,7 @@ Active NodeJS LTS (Long Term Support) version and associated supported NPM versi
 
 ## 📂 Acesso ao projeto 
 
-Acesse a pasta do projeto clicando <a href="https://github.com/AdrianoRaposoCavalcanti/fiori_app_admin/webapp">aqui</a>.
+Acesse a pasta do projeto clicando <a href="https://github.com/AdrianoRaposoCavalcanti/fiori_app_admin/tree/main/webapp">aqui</a>.
 
 
 
